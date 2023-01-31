@@ -1,0 +1,59 @@
+﻿@model IEnumerable<api_productos.Models.Familia>
+
+@{
+    ViewData["Title"] = "Familias";
+}
+
+<h1>Familias</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Añadir Familia</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFamilia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaModificacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Baja)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaBaja)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFamilia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaModificacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baja)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaBaja)
+            </td>
+            <td>
+                <a class="btn btn-warning"  asp-action="Edit" asp-route-id="@item.IdFamilia">Editar</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.IdFamilia">Detalles</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.IdFamilia">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
